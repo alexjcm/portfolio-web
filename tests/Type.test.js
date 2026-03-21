@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import Type from '../src/components/home/Type';
+import Type from '../components/home/Type';
 
 describe('Type', () => {
   test('render the typewriter effect', () => {
