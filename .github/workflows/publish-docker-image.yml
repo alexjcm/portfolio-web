@@ -29,7 +29,7 @@ jobs:
           context: .
           file: docker/DockerfileProd
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-web:latest
 
       - name: Send telegram message
         uses: appleboy/telegram-action@master
@@ -49,5 +49,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-          repository: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio
+          repository: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-web
           short-description: ${{ github.event.repository.description }}

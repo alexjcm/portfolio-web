@@ -1,12 +1,12 @@
-# My Portfolio Frontend with Next.js
+# My Portfolio Web with Next.js
 
-[![Publish docker image (CI)](https://github.com/alexjcm/portfolio/actions/workflows/publish-docker-image.yml/badge.svg?branch=main)](https://github.com/alexjcm/portfolio/actions/workflows/publish-docker-image.yml) [![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexjcm/portfolio) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
+[![Publish docker image (CI)](https://github.com/alexjcm/portfolio-web/actions/workflows/publish-docker-image.yml/badge.svg?branch=main)](https://github.com/alexjcm/portfolio-web/actions/workflows/publish-docker-image.yml) [![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexjcm/portfolio-web) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE)
 
 ## Features
 
 - Production ready Dockerfile
 - Implemented [sentry](https://sentry.io) error tracking and monitoring
-- Linting with Eslint 8
+- Linting with Eslint
 - Format code with Prettier
 - ES6+ features with babel (including es6 import/export feature)
 - Logging with [Pino](https://www.npmjs.com/package/pino)
@@ -14,7 +14,7 @@
 
 ## Prerrequisites
 
-- NodeJs 22
+- NodeJs 24
 - [portfolio-ws](https://github.com/alexjcm/portfolio-ws)
 
 ## Installation
@@ -47,26 +47,26 @@ npm start
 Build image:
 
 ```bash
-docker build -t alexjcm/portfolio -f docker/DockerfileProd . --platform linux/amd64
+docker build -t alexjcm/portfolio-web -f docker/DockerfileProd . --platform linux/amd64
 ```
 
 Or
 
 ```bash
-docker pull alexjcm/portfolio
+docker pull alexjcm/portfolio-web
 ```
 
 Start container:
 
 ```bash
 docker run --restart unless-stopped -d -p 3000:3000 \
---name portfolio --env-file $HOME/secrets/portfolio/.env.production alexjcm/portfolio
+--name portfolio-web --env-file $HOME/secrets/portfolio-web/.env.production alexjcm/portfolio-web
 ```
 
 Stop container:
 
 ```bash
-docker stop portfolio
+docker stop portfolio-web
 ```
 
 ## TODO

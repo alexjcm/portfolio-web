@@ -22,16 +22,16 @@ export default function SecondaryHome() {
         <Row>
           <Col md={7} className={styles.homeAboutDescription}>
             <h1 className={styles.homeAboutHeading}>
-              {t('letMe')} <span className={styles.purple}> {t('introduce')} </span> {t('myself')}
+              {t('letMe')} <span className="purple"> {t('introduce')} </span> {t('myself')}
             </h1>
             <p className={styles.homeAboutBody}>
               {t('favoriteLanguages')}
               <i>
-                <b className={styles.purple}> {t('languages')} </b>
+                <b className="purple"> {t('languages')} </b>
               </i>
               {t('favoriteFrameworks')}
               <i>
-                <b className={styles.purple}> {t('frameworks')} </b>
+                <b className="purple"> {t('frameworks')} </b>
               </i>
               {t('myInterest')}
             </p>
@@ -49,7 +49,7 @@ export default function SecondaryHome() {
             <br />
             <h1>{t('findMe')}</h1>
             <p className={styles.homeAboutSocialTextSize}>
-              {t('feelFree')} <span className={styles.purple}>{t('contact')} </span> {t('me')}
+              {t('feelFree')} <span className="purple">{t('contact')} </span> {t('me')}
             </p>
             <ul className={styles.homeAboutSocialLinks}>
               <li className={styles.socialIcons}>

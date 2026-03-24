@@ -32,7 +32,7 @@ export default function Projects({ params }: { params: Promise<{ locale: string 
   return (
     <main className={styles.projectSection}>
       <h1 className={styles.projectHeading}>
-        {t('myRecent')} <strong className={styles.purple}>{t('works')} </strong>
+        {t('myRecent')} <strong className="purple">{t('works')} </strong>
       </h1>
       <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
         {projects.map((project) => (

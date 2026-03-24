@@ -14,7 +14,7 @@ export default function Github() {
   return (
     <Row className={styles.githubContainer}>
       <h1 className={styles.projectHeading} style={{ paddingBottom: '20px' }}>
-        {t('daysI')} <strong className={styles.purple}>{t('coded')}</strong>
+        {t('daysI')} <strong className="purple">{t('coded')}</strong>
       </h1>
       <GitHubCalendar
         username="alexjcm"

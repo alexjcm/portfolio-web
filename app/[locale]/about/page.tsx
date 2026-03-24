@@ -23,7 +23,7 @@ export default function About({ params }: { params: Promise<{ locale: string }> 
         <Row style={{ justifyContent: 'center', padding: '10px' }}>
           <Col md={6} className={styles.aboutParagraphOne}>
             <h1 className={styles.aboutTitleOne}>
-              {t('whoQ')} <strong className={styles.purple}>{t('iamQ')}</strong>
+              {t('whoQ')} <strong className="purple">{t('iamQ')}</strong>
             </h1>
             <Aboutcard />
           </Col>
@@ -33,12 +33,12 @@ export default function About({ params }: { params: Promise<{ locale: string }> 
         </Row>
         <Row style={{ justifyContent: 'center', padding: '10px' }}>
           <h1 className={styles.projectHeading}>
-            <strong className={styles.purple}>{t('skills')}</strong>
+            <strong className="purple">{t('skills')}</strong>
           </h1>
         </Row>
         <Techstack />
           <h1 className={styles.toolsTitle}>
-            <strong className={styles.purple}>{t('tools')}</strong>&nbsp;{t('iUse')}
+            <strong className="purple">{t('tools')}</strong>&nbsp;{t('iUse')}
           </h1>
         <Toolstack />
         <Github />

@@ -14,7 +14,7 @@ export default function AboutCard() {
       <Card.Body className={styles.cardBodyText}>
         <blockquote className={`blockquote mb-0 ${styles.aboutCardTextSize}`}>
           <p style={{ textAlign: 'justify' }}>
-            {t('iam')} <span className={styles.purple}>Alex John Chamba</span>.&nbsp;
+            {t('iam')} <span className="purple">Alex John Chamba</span>.&nbsp;
             {t('iamSummary')}
           </p>
         </blockquote>

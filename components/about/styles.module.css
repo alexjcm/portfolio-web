@@ -1,6 +1,3 @@
-.purple {
-  color: var(--main-color);
-}
 
 .aboutTitleOne {
   font-size: 2.1em;
@@ -66,32 +63,12 @@
   border: 1.6px solid var(--tech-icon-color-hover-rgba);
 }
 
-.techIconImages {
-  padding: 20px;
-  line-height: 1.6;
-}
-
 .quoteCardView {
   border: none;
   color: black;
   background-color: transparent;
 }
 
-.aboutActivity {
-  list-style: none;
-  text-align: left;
-  padding-left: 1px;
-}
-
-.aboutImg {
-  padding-top: 0;
-}
-
-@media (max-width: 767px) {
-  .aboutImg {
-    padding-top: 0;
-  }
-}
 
 /******************/
 .projectHeading {
