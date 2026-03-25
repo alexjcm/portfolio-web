@@ -1,0 +1,84 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { getMessages } from '@/i18n/messages';
+
+const t = getMessages('es').projects;
+const projects = await getCollection('projects');
+---
+
+<BaseLayout lang="es" pathname={Astro.url.pathname} title="Proyectos | ES">
+  <section class="panel">
+    <h1 class="section-title">{t.myRecent} {t.works}</h1>
+
+    <div class="cards">
+      {
+        projects.map((project) => (
+          <article class="card">
+            <img
+              src={`/assets/projects/${project.data.imageProjectLink}`}
+              alt={project.data.name.es}
+              loading="lazy"
+            />
+            <div class="content">
+              <h2>{project.data.name.es}</h2>
+              <p>{project.data.description.es}</p>
+              <a href={project.data.projectLink} target="_blank" rel="noreferrer">
+                {t.viewProject}
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 820px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.08rem;
+  }
+
+  p {
+    margin: 0 0 0.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--accent-strong);
+    font-weight: 700;
+  }
+</style>

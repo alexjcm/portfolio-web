@@ -1,0 +1,86 @@
+---
+interface Props {
+  phrases: string[];
+  id: string;
+}
+
+const { phrases, id } = Astro.props;
+---
+
+<div class="typewriter" id={id} data-phrases={JSON.stringify(phrases)}>
+  <span class="value"></span><span class="cursor" aria-hidden="true">|</span>
+</div>
+
+<script is:inline>
+  const instances = document.querySelectorAll('.typewriter');
+
+  instances.forEach((instance) => {
+    if (instance.dataset.ready === 'true') {
+      return;
+    }
+
+    instance.dataset.ready = 'true';
+    const phrases = JSON.parse(instance.dataset.phrases || '[]');
+    const valueNode = instance.querySelector('.value');
+    if (!valueNode || !phrases.length) return;
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const tick = () => {
+      const phrase = phrases[phraseIndex] || '';
+
+      if (deleting) {
+        charIndex -= 1;
+      } else {
+        charIndex += 1;
+      }
+
+      valueNode.textContent = phrase.slice(0, Math.max(charIndex, 0));
+
+      let delay = deleting ? 45 : 95;
+
+      if (!deleting && charIndex >= phrase.length) {
+        delay = 950;
+        deleting = true;
+      } else if (deleting && charIndex <= 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        delay = 240;
+      }
+
+      window.setTimeout(tick, delay);
+    };
+
+    tick();
+  });
+</script>
+
+<style>
+  .typewriter {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.2rem;
+    min-height: 2.2rem;
+    color: var(--accent-strong);
+    font-weight: 700;
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+  }
+
+  .cursor {
+    animation: blink 0.8s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+</style>

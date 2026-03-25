@@ -1,0 +1,92 @@
+---
+import TagCloud from '@/components/about/TagCloud.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getMessages } from '@/i18n/messages';
+
+const t = getMessages('en').about;
+
+const tags = [
+  'Java',
+  'Spring Boot',
+  'Node.js',
+  'Express',
+  'PostgreSQL',
+  'MongoDB',
+  'Redis',
+  'Docker',
+  'Git',
+  'TypeScript',
+  'Astro',
+  'Testing',
+];
+
+const skills = ['Java', 'JavaScript', 'TypeScript', 'Node.js', 'Spring Boot', 'Astro'];
+const tools = ['Docker', 'Git', 'VS Code', 'Postman', 'Linux', 'DigitalOcean'];
+---
+
+<BaseLayout lang="en" pathname={Astro.url.pathname} title="About | EN">
+  <section class="grid-2 introGrid">
+    <article class="panel">
+      <h1 class="section-title">{t.whoQ} {t.iamQ}</h1>
+      <p>
+        {t.iam} <strong>Alex John Chamba</strong>. {t.iamSummary}
+      </p>
+      <p class="placeholder">GitHub calendar: coming-soon</p>
+    </article>
+
+    <TagCloud id="tag-cloud-en" tags={tags} />
+  </section>
+
+  <section class="panel stackSection">
+    <h2>{t.skills}</h2>
+    <ul class="chips">
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+
+    <h2>{t.tools} {t.iUse}</h2>
+    <ul class="chips">
+      {tools.map((tool) => <li>{tool}</li>)}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .introGrid {
+    margin-bottom: 1.2rem;
+    align-items: stretch;
+  }
+
+  p {
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .placeholder {
+    color: #64748b;
+    margin-top: 1rem;
+  }
+
+  .stackSection h2 {
+    margin: 0 0 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  .chips {
+    margin: 0 0 1.4rem;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .chips li {
+    background: var(--chip);
+    color: var(--accent-strong);
+    border: 1px solid #cde6e2;
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+</style>

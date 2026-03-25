@@ -1,0 +1,42 @@
+---
+import SiteFooter from '@/components/SiteFooter.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import type { Locale } from '@/i18n/config';
+import '@/styles/global.css';
+
+interface Props {
+  lang: Locale;
+  title?: string;
+  pathname: string;
+}
+
+const { lang, title = 'Portfolio Migration', pathname } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <SiteHeader locale={lang} pathname={pathname} />
+    <main class="container">
+      <slot />
+    </main>
+    <SiteFooter locale={lang} />
+  </body>
+</html>
+
+<style>
+  .container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 2.2rem 1rem 1.5rem;
+  }
+</style>

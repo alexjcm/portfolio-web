@@ -41,17 +41,12 @@ yarn-error.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# next.js
-/.next/
-/out/
+# Astro
+/.astro/
+/dist/
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
-
-# Sentry
-.sentryclirc
-.env.sentry-build-plugin

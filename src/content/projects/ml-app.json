@@ -1,0 +1,12 @@
+{
+  "name": {
+    "en": "ML App",
+    "es": "Aplicación ML"
+  },
+  "description": {
+    "en": "Machine learning demo app integrating model predictions into a web UI.",
+    "es": "Aplicación demo de machine learning que integra predicciones de modelos en una UI web."
+  },
+  "imageProjectLink": "ml-app.png",
+  "projectLink": "https://github.com/alexjcm"
+}

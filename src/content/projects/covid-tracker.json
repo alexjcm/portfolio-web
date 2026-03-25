@@ -1,0 +1,12 @@
+{
+  "name": {
+    "en": "COVID Tracker",
+    "es": "COVID Tracker"
+  },
+  "description": {
+    "en": "Interactive visualization of health statistics for monitoring global impact.",
+    "es": "Visualización interactiva de estadísticas de salud para monitorear impacto global."
+  },
+  "imageProjectLink": "covid-tracker.png",
+  "projectLink": "https://github.com/alexjcm"
+}

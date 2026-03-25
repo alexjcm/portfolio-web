@@ -1,0 +1,42 @@
+---
+import { getMessages } from '@/i18n/messages';
+import type { Locale } from '@/i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getMessages(locale).common;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="inner">
+    <p>{t.footer.createdBy}</p>
+    <p>Copyright © {year} AJ</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid #d9e2ec;
+    margin-top: 2rem;
+  }
+
+  .inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.2rem 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: #475569;
+    font-size: 0.92rem;
+    flex-wrap: wrap;
+  }
+
+  p {
+    margin: 0;
+  }
+</style>

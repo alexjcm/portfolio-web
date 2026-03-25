@@ -1,0 +1,12 @@
+{
+  "name": {
+    "en": "Crypto Tracker",
+    "es": "Crypto Tracker"
+  },
+  "description": {
+    "en": "Dashboard to follow cryptocurrency prices and trends in real time.",
+    "es": "Dashboard para seguir precios y tendencias de criptomonedas en tiempo real."
+  },
+  "imageProjectLink": "crypto-tracker.png",
+  "projectLink": "https://github.com/alexjcm"
+}

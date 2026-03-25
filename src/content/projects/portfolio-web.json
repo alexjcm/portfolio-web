@@ -1,0 +1,12 @@
+{
+  "name": {
+    "en": "Portfolio Web",
+    "es": "Portfolio Web"
+  },
+  "description": {
+    "en": "Personal portfolio website with multilingual support and modern frontend stack.",
+    "es": "Sitio personal de portafolio con soporte multilenguaje y stack frontend moderno."
+  },
+  "imageProjectLink": "sample-min.png",
+  "projectLink": "https://github.com/alexjcm/portfolio-web"
+}

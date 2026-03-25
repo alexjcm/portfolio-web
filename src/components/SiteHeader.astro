@@ -1,0 +1,172 @@
+---
+import { localeLabels, type Locale } from '@/i18n/config';
+import { getMessages } from '@/i18n/messages';
+import {
+  getLocalizedPath,
+  isRouteActive,
+  switchLocalePath,
+  type NavRoute,
+} from '@/i18n/routing';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const t = getMessages(locale).common;
+const otherLocale: Locale = locale === 'en' ? 'es' : 'en';
+const localeHref = switchLocalePath(pathname, otherLocale);
+
+const routes: { key: NavRoute; label: string }[] = [
+  { key: 'home', label: t.navbar.home },
+  { key: 'about', label: t.navbar.about },
+  { key: 'projects', label: t.navbar.projects },
+  { key: 'contact', label: t.navbar.contact },
+];
+---
+
+<header class="header">
+  <div class="inner">
+    <a class="brand" href={getLocalizedPath(locale, 'home')} aria-label={locale === 'en' ? 'Go to home' : 'Ir a inicio'}>
+      <picture>
+        <source
+          media="(prefers-color-scheme: dark)"
+          srcset="/assets/logo_dark_aj167.jpg 167w, /assets/logo_dark_aj600.jpg 600w"
+        />
+        <img
+          src="/assets/logo_light_aj167.jpg"
+          srcset="/assets/logo_light_aj167.jpg 167w, /assets/logo_light_aj600.jpg 600w"
+          sizes="2.2rem"
+          width="35"
+          height="35"
+          alt="AJ logo"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="navList">
+        {
+          routes.map((route) => (
+            <li>
+              <a
+                href={getLocalizedPath(locale, route.key)}
+                class={isRouteActive(pathname, locale, route.key) ? 'active' : ''}
+              >
+                {route.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <a class="localeSwitch" href={localeHref} aria-label="Switch language">
+      {localeLabels[otherLocale]}
+    </a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(245, 247, 250, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid #d9e2ec;
+  }
+
+  .inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: inline-flex;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 999px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 700;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .brand picture {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .brand img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .navList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navList a {
+    color: #334155;
+    text-decoration: none;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+  }
+
+  .navList a:hover {
+    background: #e2e8f0;
+  }
+
+  .navList a.active {
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .localeSwitch {
+    text-decoration: none;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.9rem;
+    background: #ffffff;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 780px) {
+    .inner {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    nav {
+      order: 3;
+    }
+
+    .brand,
+    .localeSwitch {
+      align-self: center;
+    }
+  }
+</style>

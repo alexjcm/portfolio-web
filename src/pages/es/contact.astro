@@ -1,0 +1,35 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getMessages } from '@/i18n/messages';
+
+const t = getMessages('es').contact;
+const mailto = 'mailto:hello@example.com?subject=Portfolio%20contact&body=Nombre:%20%0AEmail:%20%0AMensaje:%20';
+---
+
+<BaseLayout lang="es" pathname={Astro.url.pathname} title="Contacto | ES">
+  <section class="panel contact">
+    <h1 class="section-title">{t.sendEmail}</h1>
+    <p>
+      Opción de contacto rápida para la migración: abre tu cliente de correo y envía tu mensaje.
+    </p>
+    <a class="cta" href={mailto}>{t.submit}</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact p {
+    margin: 0 0 1rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .cta {
+    display: inline-flex;
+    text-decoration: none;
+    background: var(--accent-strong);
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.55rem 0.95rem;
+    font-weight: 700;
+  }
+</style>
