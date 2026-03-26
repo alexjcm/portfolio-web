@@ -7,21 +7,62 @@ import '@/styles/global.css';
 interface Props {
   lang: Locale;
   title?: string;
+  description?: string;
   pathname: string;
 }
 
-const { lang, title = 'Portfolio Migration', pathname } = Astro.props;
+const defaultDescriptionByLocale: Record<Locale, string> = {
+  en: 'Portfolio of Alex John Chamba, software engineer focused on Java and JavaScript web development.',
+  es: 'Portafolio de Alex John Chamba, ingeniero de software enfocado en desarrollo web con Java y JavaScript.',
+};
+
+const { lang, title = 'Alex John Chamba', description = defaultDescriptionByLocale[lang], pathname } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0e1a" />
     <link rel="icon" href="/favicon.ico" />
     <title>{title}</title>
+
+    <!-- Google Fonts: preconnect for performance, then load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Devicon (tech icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
+    <!-- Anti-FOUC: resolve theme before first paint -->
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var theme = stored === 'light' || stored === 'dark'
+            ? stored
+            : window.matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body>
+    <!-- Aurora background blobs -->
+    <div class="aurora-blob-3" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
     <SiteHeader locale={lang} pathname={pathname} />
     <main class="container">
       <slot />
@@ -34,9 +75,11 @@ const { lang, title = 'Portfolio Migration', pathname } = Astro.props;
   .container {
     box-sizing: border-box;
     width: 100%;
-    max-width: 1080px;
+    max-width: var(--max-width);
     margin: 0 auto;
     min-height: 100vh;
-    padding: 2.2rem 1rem 1.5rem;
+    padding-top: calc(var(--nav-height) + 2rem);
+    padding-inline: 1.25rem;
+    padding-bottom: 3rem;
   }
 </style>

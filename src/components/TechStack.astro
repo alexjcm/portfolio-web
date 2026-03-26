@@ -1,0 +1,76 @@
+---
+import type { Locale } from '@/i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const stack = [
+  { label: 'Java',        icon: 'devicon-java-plain'         },
+  { label: 'Spring',      icon: 'devicon-spring-plain'       },
+  { label: 'JavaScript',  icon: 'devicon-javascript-plain'   },
+  { label: 'TypeScript',  icon: 'devicon-typescript-plain'   },
+  { label: 'Node.js',     icon: 'devicon-nodejs-plain'       },
+  { label: 'React',       icon: 'devicon-react-original'     },
+  { label: 'Next.js',     icon: 'devicon-nextjs-plain'       },
+  { label: 'Astro',       icon: 'devicon-astro-plain'        },
+  { label: 'PostgreSQL',  icon: 'devicon-postgresql-plain'   },
+  { label: 'Docker',      icon: 'devicon-docker-plain'       },
+  { label: 'Git',         icon: 'devicon-git-plain'          },
+  { label: 'Linux',       icon: 'devicon-linux-plain'        },
+];
+
+const sectionTitle = locale === 'en' ? 'Tech Stack' : 'Stack Tecnológico';
+---
+
+<section class="section techstack">
+  <span class="section-label">tools</span>
+  <h2 class="section-title">{sectionTitle}</h2>
+  <ul class="grid" role="list">
+    {stack.map((item) => (
+      <li class="chip glass-sm">
+        <i class={`${item.icon} colored`} aria-hidden="true"></i>
+        <span>{item.label}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .techstack {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+    cursor: default;
+  }
+
+  .chip:hover {
+    background: var(--surface-hover);
+    box-shadow: var(--glow);
+    transform: translateY(-2px);
+  }
+
+  .chip i {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+</style>

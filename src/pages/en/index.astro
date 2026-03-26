@@ -1,115 +1,16 @@
 ---
-import Typewriter from '@/components/home/Typewriter.astro';
+import Hero from '@/components/Hero.astro';
+import TechStack from '@/components/TechStack.astro';
+import AboutPreview from '@/components/AboutPreview.astro';
+import Contact from '@/components/Contact.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getMessages } from '@/i18n/messages';
 
-const t = getMessages('en').home;
-const phrases = [t.javaDeveloper, t.engineer, t.reactDeveloper];
-const introTitle = `${t.letMe} ${t.introduce} ${t.myself}`.trim();
+const title = 'Alex John Chamba · Software Engineer';
 ---
 
-<BaseLayout lang="en" pathname={Astro.url.pathname} title="Home | EN">
-  <section class="hero grid-2">
-    <article class="panel intro">
-      <p class="eyebrow">{t.greeting}</p>
-      <h1 class="section-title">
-        {t.iam} <span class="name">ALEX JOHN CHAMBA</span>
-      </h1>
-      <Typewriter id="typewriter-en" phrases={phrases} />
-      <p class="summary">{t.myInterest}</p>
-      <ul class="socials">
-        <li><a href="https://github.com/alexjcm" target="_blank" rel="noreferrer">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/alex-john-chamba-macas/" target="_blank" rel="noreferrer">LinkedIn</a></li>
-        <li><a href="https://twitter.com/alexjhcm" target="_blank" rel="noreferrer">Twitter</a></li>
-      </ul>
-    </article>
-
-    <aside class="panel visual">
-      <img src="/assets/home/undraw_progressive_app.svg" alt="Progressive app illustration" loading="eager" />
-    </aside>
-  </section>
-
-  <section class="panel aboutHome">
-    <h2>{introTitle}</h2>
-    <p>
-      {t.favoriteLanguages} <strong>{t.languages}</strong>
-      {t.favoriteFrameworks} <strong>{t.frameworks}</strong>
-    </p>
-    <img src="/assets/home/undraw_version_control.svg" alt="Version control illustration" loading="lazy" />
-  </section>
+<BaseLayout lang="en" pathname={Astro.url.pathname} title={title}>
+  <Hero locale="en" />
+  <TechStack locale="en" />
+  <AboutPreview locale="en" />
+  <Contact locale="en" />
 </BaseLayout>
-
-<style>
-  .hero {
-    align-items: stretch;
-    margin-bottom: 1.2rem;
-  }
-
-  .eyebrow {
-    margin: 0;
-    color: var(--muted);
-    font-weight: 600;
-  }
-
-  .name {
-    color: var(--accent-strong);
-  }
-
-  .summary {
-    color: var(--muted);
-    line-height: 1.7;
-    margin-top: 0.7rem;
-  }
-
-  .socials {
-    margin: 1rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-  }
-
-  .socials a {
-    display: inline-flex;
-    padding: 0.35rem 0.7rem;
-    border: 1px solid #b8d8d4;
-    border-radius: 999px;
-    text-decoration: none;
-    color: #155e57;
-    background: #f4fffd;
-    font-size: 0.86rem;
-    font-weight: 600;
-  }
-
-  .visual {
-    display: grid;
-    place-items: center;
-  }
-
-  .visual img {
-    width: min(100%, 380px);
-    height: auto;
-  }
-
-  .aboutHome {
-    display: grid;
-    gap: 0.8rem;
-    justify-items: start;
-  }
-
-  .aboutHome h2,
-  .aboutHome p {
-    margin: 0;
-  }
-
-  .aboutHome p {
-    line-height: 1.7;
-    color: var(--muted);
-  }
-
-  .aboutHome img {
-    width: min(100%, 420px);
-    height: auto;
-  }
-</style>

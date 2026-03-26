@@ -1,0 +1,48 @@
+---
+import type { Locale } from '@/i18n/config';
+import { getMessages } from '@/i18n/messages';
+import { getLocalizedPath } from '@/i18n/routing';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ta = getMessages(locale).about;
+
+const heading      = locale === 'en' ? 'About Me'       : 'Sobre Mí';
+const readMoreText = locale === 'en' ? 'Read more →'    : 'Leer más →';
+---
+
+<section class="section about-preview">
+  <span class="section-label">about</span>
+  <h2 class="section-title">{heading}</h2>
+  <div class="card glass">
+    <p class="bio">{ta.iamSummary}</p>
+    <a href={getLocalizedPath(locale, 'about')} class="btn btn-outline read-more">
+      {readMoreText}
+    </a>
+  </div>
+</section>
+
+<style>
+  .about-preview {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    align-items: flex-start;
+  }
+
+  .bio {
+    color: var(--text-muted);
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.8;
+    max-width: 65ch;
+    margin: 0;
+  }
+</style>

@@ -9,34 +9,97 @@ interface Props {
 const { locale } = Astro.props;
 const t = getMessages(locale).common;
 const year = new Date().getFullYear();
+
+const links = [
+  { label: 'GitHub',   href: 'https://github.com/alexjcm' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/alexjcm' },
+];
 ---
 
 <footer class="footer">
   <div class="inner">
-    <p>{t.footer.createdBy}</p>
-    <p>Copyright © {year} AJ</p>
+    <p class="copy">
+      <span class="mono text-muted">© {year}</span>
+      <span class="name">Alex John Chamba</span>
+    </p>
+    <p class="credit text-muted">{t.footer.createdBy}</p>
+    <ul class="links" role="list">
+      {links.map((link) => (
+        <li>
+          <a href={link.href} target="_blank" rel="noopener noreferrer">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </footer>
 
 <style>
   .footer {
-    border-top: 1px solid #d9e2ec;
-    margin-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 4rem;
+    padding: 2rem 0;
   }
 
   .inner {
-    max-width: 1080px;
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 1.2rem 1rem 2rem;
+    padding: 0 1.25rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    color: #475569;
-    font-size: 0.92rem;
     flex-wrap: wrap;
   }
 
-  p {
+  .copy {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
     margin: 0;
+  }
+
+  .name {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .credit {
+    font-size: 0.82rem;
+    margin: 0;
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .links a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .credit {
+      display: none;
+    }
   }
 </style>
