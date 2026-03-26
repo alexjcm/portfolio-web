@@ -16,8 +16,11 @@ const projects = defineCollection({
       en: z.string(),
       es: z.string(),
     }),
+    tech: z.array(z.string()),
     imageProjectLink: z.string().min(1),
-    projectLink: z.url(),
+    projectLink: z.string().min(1),
+    demoLink: z.string(),
+    featured: z.boolean(),
   }),
 });
 

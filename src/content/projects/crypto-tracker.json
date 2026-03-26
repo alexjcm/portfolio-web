@@ -4,9 +4,12 @@
     "es": "Crypto Tracker"
   },
   "description": {
-    "en": "Dashboard to follow cryptocurrency prices and trends in real time.",
-    "es": "Dashboard para seguir precios y tendencias de criptomonedas en tiempo real."
+    "en": "Dashboard to follow cryptocurrency prices and trends in real time with interactive charts.",
+    "es": "Dashboard para seguir precios y tendencias de criptomonedas en tiempo real con gráficos interactivos."
   },
+  "tech": ["React", "TypeScript", "Node.js", "REST API"],
   "imageProjectLink": "crypto-tracker.png",
-  "projectLink": "https://github.com/alexjcm"
+  "projectLink": "https://github.com/alexjcm",
+  "demoLink": "",
+  "featured": true
 }

@@ -1,11 +1,3 @@
 {
-    "sendEmail": "¡Siéntase libre de enviar un correo electrónico!",
-    "yourName": "Su nombre",
-    "enterName": "Por favor ingrese un nombre",
-    "email": "Correo electrónico",
-    "enterEmail": "Por favor, introduzca su correo electrónico",
-    "message": "Mensaje",
-    "enterMessage": "Por favor ingrese su mensaje",
-    "submit": "Enviar",
-    "submitting": "Enviando..."
+  "sendEmail": "¡Siéntase libre de enviar un correo electrónico!"
 }

@@ -1,84 +1,72 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
 import { getMessages } from '@/i18n/messages';
 
 const t = getMessages('en').projects;
 const projects = await getCollection('projects');
+
+// Featured first, then the rest
+const sorted = [
+  ...projects.filter((p) => p.data.featured),
+  ...projects.filter((p) => !p.data.featured),
+];
+
+const title = 'Projects – Alex John Chamba';
 ---
 
-<BaseLayout lang="en" pathname={Astro.url.pathname} title="Projects | EN">
-  <section class="panel">
-    <h1 class="section-title">{t.myRecent} {t.works}</h1>
+<BaseLayout lang="en" pathname={Astro.url.pathname} title={title}>
+  <section class="section projects-page">
+    <span class="section-label">work</span>
+    <h1 class="section-title">
+      {t.myRecent} <span class="accent">{t.works}</span>
+    </h1>
+    <p class="subtitle">
+      A selection of projects I've built — from web apps to data tools.
+    </p>
 
-    <div class="cards">
-      {
-        projects.map((project) => (
-          <article class="card">
-            <img
-              src={`/assets/projects/${project.data.imageProjectLink}`}
-              alt={project.data.name.en}
-              loading="lazy"
-            />
-            <div class="content">
-              <h2>{project.data.name.en}</h2>
-              <p>{project.data.description.en}</p>
-              <a href={project.data.projectLink} target="_blank" rel="noreferrer">
-                {t.viewProject}
-              </a>
-            </div>
-          </article>
-        ))
-      }
+    <div class="projects-grid">
+      {sorted.map((project) => (
+        <ProjectCard
+          name={project.data.name.en}
+          description={project.data.description.en}
+          tech={project.data.tech}
+          image={project.data.imageProjectLink}
+          projectLink={project.data.projectLink}
+          demoLink={project.data.demoLink || undefined}
+          featured={project.data.featured}
+        />
+      ))}
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .cards {
+  .projects-page {
+    padding-top: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    max-width: 55ch;
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .projects-grid {
     display: grid;
+    gap: 1.5rem;
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
-  @media (min-width: 820px) {
-    .cards {
-      grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
     }
-  }
-
-  .card {
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    background: #fff;
-  }
-
-  .card img {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .content {
-    padding: 1rem;
-  }
-
-  h2 {
-    margin: 0 0 0.5rem;
-    font-size: 1.08rem;
-  }
-
-  p {
-    margin: 0 0 0.8rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--accent-strong);
-    font-weight: 700;
   }
 </style>

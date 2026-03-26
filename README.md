@@ -12,7 +12,6 @@ npm run check
 npm run lint
 ```
 
-
 ## License
 
 [MIT](./LICENSE)

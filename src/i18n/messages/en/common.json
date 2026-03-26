@@ -1,11 +1,11 @@
 {
-    "navbar": {
-        "about": "About",
-        "home": "Home",
-        "projects": "Projects",
-        "contact": "Contact"
-    },
-    "footer": {
-        "createdBy": "Designed and developed by Alex John"
-    }
+  "navbar": {
+    "about": "About",
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "footer": {
+    "createdBy": "Designed and developed by Alex John"
+  }
 }

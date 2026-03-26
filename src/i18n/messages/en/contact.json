@@ -1,11 +1,3 @@
 {
-    "sendEmail": "Feel free to send an email!",
-    "yourName": "Your name",
-    "enterName": "Please enter a name.",
-    "email": "Email",
-    "enterEmail": "Please enter your email.",
-    "message": "Message",
-    "enterMessage": "Please enter your message",
-    "submit": "Submit",
-    "submitting": "Submitting..."
+  "sendEmail": "Feel free to send an email!"
 }

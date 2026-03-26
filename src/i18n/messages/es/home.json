@@ -1,19 +1,8 @@
 {
-    "greeting": "Hola a todos",
-    "iam": "Yo soy",
-    "javaDeveloper": "Desarrollador Java",
-    "engineer": "Ingeniero",
-    "reactDeveloper": "Desarrollador React",
-    "favoriteLanguages": "Mis lenguajes de programación favoritos son los clásicos",
-    "languages": "Java y Javascript.",
-    "favoriteFrameworks": "Entre mis frameworks favoritos están",
-    "frameworks": "Spring Boot, Express.js y Next.js.",
-    "myInterest": "Mi campo de interés es la creación de soluciones de software basadas en la web utilizando las últimas tecnologías.",
-    "findMe": "ENCUÉNTRAME EN",
-    "feelFree": "Siéntase libre de",
-    "contact": "contactarse",
-    "me": "conmigo",
-    "letMe": "PERMITAME",
-    "introduce": "PRESENTARME",
-    "myself": ""
+  "greeting": "Hola a todos",
+  "iam": "Yo soy",
+  "javaDeveloper": "Desarrollador Java",
+  "engineer": "Ingeniero",
+  "reactDeveloper": "Desarrollador React",
+  "myInterest": "Mi campo de interés es la creación de soluciones de software basadas en la web utilizando las últimas tecnologías."
 }

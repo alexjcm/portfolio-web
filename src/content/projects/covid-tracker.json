@@ -4,9 +4,12 @@
     "es": "COVID Tracker"
   },
   "description": {
-    "en": "Interactive visualization of health statistics for monitoring global impact.",
-    "es": "Visualización interactiva de estadísticas de salud para monitorear impacto global."
+    "en": "Interactive visualization of health statistics for monitoring global COVID-19 impact.",
+    "es": "Visualización interactiva de estadísticas de salud para monitorear el impacto global del COVID-19."
   },
+  "tech": ["Java", "Spring Boot", "JavaScript", "Chart.js"],
   "imageProjectLink": "covid-tracker.png",
-  "projectLink": "https://github.com/alexjcm"
+  "projectLink": "https://github.com/alexjcm",
+  "demoLink": "",
+  "featured": true
 }

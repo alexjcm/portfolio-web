@@ -1,11 +1,11 @@
 {
-    "whoQ": "Who",
-    "iamQ": "I'M?",
-    "iam": "I am",
-    "iamSummary": "I am a Software Developer and an enthusiast of new technologies related to the software industry.",
-    "skills": "Skills",
-    "tools": "Tools",
-    "iUse": "I use",
-    "daysI": "Days I",
-    "coded": "Coded"
+  "whoQ": "Who",
+  "iamQ": "I'M?",
+  "iam": "I am",
+  "iamSummary": "I am a Software Developer and an enthusiast of new technologies related to the software industry.",
+  "skills": "Skills",
+  "tools": "Tools",
+  "iUse": "I use",
+  "daysI": "Days I",
+  "coded": "Coded"
 }
