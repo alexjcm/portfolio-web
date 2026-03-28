@@ -7,7 +7,7 @@
     "en": "Machine learning demo app integrating model predictions into a web UI with data visualizations.",
     "es": "Aplicación demo de machine learning que integra predicciones de modelos en una UI web con visualizaciones."
   },
-  "tech": ["Python", "Flask", "JavaScript", "TensorFlow"],
+  "tech": ["Python", "Flask", "TypeScript", "TensorFlow"],
   "imageProjectLink": "ml-app.png",
   "projectLink": "https://github.com/alexjcm",
   "demoLink": "",

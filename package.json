@@ -12,6 +12,8 @@
     "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|md|astro)\" --config ./.prettierrc.js"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
     "astro": "^6.0.8"
   },
   "devDependencies": {

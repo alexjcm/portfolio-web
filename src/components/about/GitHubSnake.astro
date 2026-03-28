@@ -1,0 +1,71 @@
+---
+// GitHubSnake.astro
+const darkSnake = "https://raw.githubusercontent.com/alexjcm/alexjcm/gh-pages/github-contribution-grid-snake-dark.svg";
+const lightSnake = "https://raw.githubusercontent.com/alexjcm/alexjcm/gh-pages/github-contribution-grid-snake.svg";
+---
+
+<section class="section github-activity">
+  <span class="section-label">activity</span>
+  <h2 class="section-title">GitHub Contributions</h2>
+  
+  <div class="activity-container glass">
+    <div class="snake-wrapper">
+      <img
+        alt="GitHub contribution grid snake animation (Dark)"
+        src={darkSnake}
+        loading="lazy"
+        decoding="async"
+        class="snake-img dark-only"
+      />
+      <img
+        alt="GitHub contribution grid snake animation (Light)"
+        src={lightSnake}
+        loading="lazy"
+        decoding="async"
+        class="snake-img light-only"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .activity-container {
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .snake-wrapper {
+    width: 100%;
+    max-width: 880px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .snake-img {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ── Theme Visibility (Site Toggle) ── */
+  /* Hide both by default */
+  .dark-only, .light-only { 
+    display: none; 
+  }
+
+  /* Show based on manually toggled data-theme */
+  :root[data-theme='dark'] .dark-only { display: block; }
+  :root[data-theme='light'] .light-only { display: block; }
+
+  /* Fallback for when data-theme is not yet set (Initial load) */
+  :root:not([data-theme]) .light-only { display: block; }
+  
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .light-only { display: none; }
+    :root:not([data-theme]) .dark-only  { display: block; }
+  }
+</style>

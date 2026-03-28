@@ -12,11 +12,15 @@ interface Props {
 }
 
 const defaultDescriptionByLocale: Record<Locale, string> = {
-  en: 'Portfolio of Alex John Chamba, software engineer focused on Java and JavaScript web development.',
-  es: 'Portafolio de Alex John Chamba, ingeniero de software enfocado en desarrollo web con Java y JavaScript.',
+  en: 'Portfolio of Alex John Chamba, software engineer focused on Java and TypeScript web development.',
+  es: 'Portafolio de Alex John Chamba, ingeniero de software enfocado en desarrollo web con Java y TypeScript.',
 };
 
 const { lang, title = 'Alex John Chamba', description = defaultDescriptionByLocale[lang], pathname } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://alexjcm.vercel.app');
+const socialImageURL = new URL('/assets/logo_dark_aj600.jpg', Astro.url);
+const twitterHandle = '@alexjhcm';
 ---
 
 <!doctype html>
@@ -27,29 +31,37 @@ const { lang, title = 'Alex John Chamba', description = defaultDescriptionByLoca
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0a0e1a" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
 
-    <!-- Google Fonts: non-render-blocking preload + swap -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content={twitterHandle} />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
+
+    <!-- Devicon (tech icons) - optimized load -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
       />
     </noscript>
-
-    <!-- Devicon (tech icons) -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
 
     <!-- Anti-FOUC: resolve theme before first paint -->
     <script is:inline>

@@ -1,5 +1,6 @@
 ---
 import TagCloud from '@/components/about/TagCloud.astro';
+import GitHubSnake from '@/components/about/GitHubSnake.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getMessages } from '@/i18n/messages';
 import { getLocalizedPath } from '@/i18n/routing';
@@ -12,7 +13,7 @@ const tags = [
   'Git', 'TypeScript', 'Astro', 'Testing',
 ];
 
-const skills = ['Java', 'JavaScript', 'TypeScript', 'Node.js', 'Spring Boot', 'React', 'Astro'];
+const skills = ['Java', 'TypeScript', 'Node.js', 'Spring Boot', 'React', 'Astro'];
 const tools  = ['Docker', 'Git', 'VS Code', 'Postman', 'Linux', 'Vercel'];
 
 const experience = [
@@ -103,10 +104,12 @@ const title = 'About – Alex John Chamba';
     <div class="link-row">
       <a href="https://github.com/alexjcm" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
       <a href="https://www.linkedin.com/in/alex-john-chamba-macas/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
-      <a href="https://dev.to/alexjcm" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Dev.to</a>
       <a href="mailto:alexjohnchamba@gmail.com" class="btn btn-primary">Email me</a>
     </div>
   </section>
+
+  <!-- GitHub Snake Animation -->
+  <GitHubSnake />
 
 </BaseLayout>
 

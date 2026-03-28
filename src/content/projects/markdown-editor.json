@@ -7,7 +7,7 @@
     "en": "Live editor with markdown preview focused on a clean writing workflow and keyboard shortcuts.",
     "es": "Editor en vivo con vista previa markdown enfocado en un flujo de escritura limpio y atajos de teclado."
   },
-  "tech": ["JavaScript", "HTML", "CSS"],
+  "tech": ["TypeScript", "HTML", "CSS"],
   "imageProjectLink": "markdown-editor.png",
   "projectLink": "https://github.com/alexjcm",
   "demoLink": "",

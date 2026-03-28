@@ -2,6 +2,14 @@
    DESIGN SYSTEM — 2026 Portfolio
    ================================================================ */
 
+/* 1. Self-hosted Fonts (@fontsource) */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/600.css';
+
 /* ----------------------------------------------------------------
    2. CSS Custom Properties — Dark theme (default)
    ---------------------------------------------------------------- */
@@ -84,9 +92,9 @@
 
   --border: rgba(0, 0, 0, 0.08);
 
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.14);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* ----------------------------------------------------------------

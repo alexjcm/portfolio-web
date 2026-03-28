@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   name: string;
   description: string;
@@ -10,21 +12,19 @@ interface Props {
 }
 
 const { name, description, tech, image, projectLink, demoLink, featured = false } = Astro.props;
-
-// Locale is not needed here — the parent page passes pre-localised strings.
 ---
 
 <article class={`project-card glass ${featured ? 'featured' : ''}`}>
-  <!-- Image -->
   <div class="card-image">
-    <img
+    <Image
       src={`/assets/projects/${image}`}
       alt={`${name} screenshot`}
-      width="600"
-      height="340"
+      width={600}
+      height={340}
       loading="lazy"
       decoding="async"
-      onerror="this.style.display='none'; this.parentElement.classList.add('no-img')"
+      format="webp"
+      quality="high"
     />
   </div>
 
@@ -116,7 +116,6 @@ const { name, description, tech, image, projectLink, demoLink, featured = false 
     background: linear-gradient(135deg, var(--aurora-1), var(--aurora-2));
   }
 
-  /* Body */
   .card-body {
     display: flex;
     flex-direction: column;
@@ -139,7 +138,6 @@ const { name, description, tech, image, projectLink, demoLink, featured = false 
     flex: 1;
   }
 
-  /* Tech badges */
   .tech-list {
     display: flex;
     flex-wrap: wrap;
@@ -147,7 +145,6 @@ const { name, description, tech, image, projectLink, demoLink, featured = false 
     list-style: none;
   }
 
-  /* Links */
   .card-links {
     display: flex;
     gap: 0.6rem;
