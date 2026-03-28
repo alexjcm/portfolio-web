@@ -1,12 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/en",
-      "permanent": false
-    }
-  ]
+  "cleanUrls": true
 }
