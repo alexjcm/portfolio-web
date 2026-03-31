@@ -9,9 +9,19 @@ interface Props {
   projectLink: string;
   demoLink?: string;
   featured?: boolean;
+  loading?: 'lazy' | 'eager';
 }
 
-const { name, description, tech, image, projectLink, demoLink, featured = false } = Astro.props;
+const {
+  name,
+  description,
+  tech,
+  image,
+  projectLink,
+  demoLink,
+  featured = false,
+  loading = 'lazy',
+} = Astro.props;
 ---
 
 <article class={`project-card glass ${featured ? 'featured' : ''}`}>
@@ -21,7 +31,7 @@ const { name, description, tech, image, projectLink, demoLink, featured = false 
       alt={`${name} screenshot`}
       width={600}
       height={340}
-      loading="lazy"
+      loading={loading}
       decoding="async"
       format="webp"
       quality="high"

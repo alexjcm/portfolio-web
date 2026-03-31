@@ -33,6 +33,28 @@ const twitterHandle = '@alexjhcm';
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
+    <!-- Font Preloading -->
+    <link
+      rel="preload"
+      href="/@fontsource/inter/files/inter-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/@fontsource/inter/files/inter-latin-600-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -49,19 +71,6 @@ const twitterHandle = '@alexjhcm';
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
-    <!-- Devicon (tech icons) - optimized load -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-      />
-    </noscript>
 
     <!-- Anti-FOUC: resolve theme before first paint -->
     <script is:inline>

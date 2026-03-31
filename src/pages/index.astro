@@ -37,6 +37,7 @@ const featured = allProjects
           projectLink={project.data.projectLink}
           demoLink={project.data.demoLink || undefined}
           featured={project.data.featured}
+          loading="eager"
         />
       ))}
     </div>

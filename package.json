@@ -12,9 +12,10 @@
     "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|md|astro)\" --config ./.prettierrc.js"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",
-    "astro": "^6.0.8"
+    "astro": "^6.1.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",

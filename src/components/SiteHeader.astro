@@ -118,7 +118,7 @@ const routes: { key: NavRoute; label: string }[] = [
       ))
     }
     <li>
-      <a href={localeHref} class="mobileLocale">
+      <a href={localeHref} class="mobileLocale" aria-label={localeSwitchAriaLabel}>
         {localeLabels[otherLocale]}
       </a>
     </li>

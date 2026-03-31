@@ -14,8 +14,8 @@ const tc = getMessages(locale).common;
 
 const phrases = [t.javaDeveloper, t.engineer, t.reactDeveloper];
 
-// DiceBear avatar — seed fixed to developer name, fetched as static URL (zero client JS)
-const avatarUrl = 'https://api.dicebear.com/9.x/initials/svg?seed=AJ&backgroundColor=b6e3f4';
+// DiceBear avatar — localized to eliminate external dependency for LCP
+const avatarUrl = '/assets/avatar.svg';
 
 const socials = [
   {

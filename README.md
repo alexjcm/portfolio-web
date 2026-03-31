@@ -33,7 +33,6 @@ To ensure an enterprise-grade experience, the following optimizations have been 
 ### Optimization & Tools
 - **Icons**: [Devicon](https://devicon.dev/)
 - **Fonts**: [Inter](https://fontsource.org/fonts/inter) & [JetBrains Mono](https://fontsource.org/fonts/jetbrains-mono)
-- **Quality**: ESLint + Prettier
 
 ---
 
@@ -48,7 +47,6 @@ npm install
 ### Development
 
 ```bash
-# Start development server
 npm run dev
 ```
 
