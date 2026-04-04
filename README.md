@@ -29,10 +29,7 @@ To ensure an enterprise-grade experience, the following optimizations have been 
 - **Framework**: [Astro](https://astro.build/) (Static Site Generation)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: Vanilla CSS with modern Custom Properties (Tokens)
-
-### Optimization & Tools
 - **Icons**: [Devicon](https://devicon.dev/)
-- **Fonts**: [Inter](https://fontsource.org/fonts/inter) & [JetBrains Mono](https://fontsource.org/fonts/jetbrains-mono)
 
 ---
 

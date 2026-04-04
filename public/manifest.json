@@ -1,0 +1,21 @@
+{
+  "name": "Alex John Chamba - Portfolio",
+  "short_name": "AlexJohn",
+  "description": "Portfolio of Alex John Chamba, Software Engineer specializing in Java and TypeScript.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "icons": [
+    {
+      "src": "/assets/logo_dark_aj167.jpg",
+      "sizes": "167x167",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/assets/logo_dark_aj600.jpg",
+      "sizes": "600x600",
+      "type": "image/jpeg"
+    }
+  ]
+}

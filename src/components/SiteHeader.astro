@@ -259,7 +259,12 @@ const routes: { key: NavRoute; label: string }[] = [
     color: var(--text-muted);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-pill);
-    padding: 0.3rem 0.75rem;
+    padding: 0.45rem 1rem;
+    min-width: 3rem;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 0.82rem;
     font-weight: 600;
     font-family: var(--font-mono);
@@ -283,8 +288,8 @@ const routes: { key: NavRoute; label: string }[] = [
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: var(--radius-pill);
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
@@ -320,11 +325,11 @@ const routes: { key: NavRoute; label: string }[] = [
   .menuToggle {
     display: none;
     position: fixed;
-    top: calc((var(--nav-height) - 2rem) / 2);
+    top: calc((var(--nav-height) - 3rem) / 2);
     right: 1.25rem;
     z-index: 110;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     flex-direction: column;
     justify-content: center;
     gap: 5px;

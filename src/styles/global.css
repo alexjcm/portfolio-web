@@ -341,41 +341,41 @@ p {
 }
 
 /* ----------------------------------------------------------------
-   10. Grid Utilities
+   10. Grid Utilities (Legacy — keeping structure but removing unused)
    ---------------------------------------------------------------- */
-.grid-2 {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: 1fr;
-}
-
-.grid-3 {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 640px) {
-  .grid-2 {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 768px) {
-  .grid-3 {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-3 {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
+/* Removing unused grid-2 and grid-3 to minimize CSS size */
 
 /* ----------------------------------------------------------------
    11. Badge / Chip
    ---------------------------------------------------------------- */
+.about-tag-sphere {
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+}
+
+:root[data-theme='light'] .about-tag-sphere {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.about-tag-sphere .ts-tag {
+  white-space: nowrap;
+  border: 1px solid var(--surface-border);
+  background: var(--accent-dim);
+  color: var(--accent-strong);
+  border-radius: var(--radius-pill);
+  padding: 0.18rem 0.65rem;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;

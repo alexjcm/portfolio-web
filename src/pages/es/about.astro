@@ -1,9 +1,10 @@
 ---
-import TagCloud from '@/components/about/TagCloud.astro';
 import GitHubSnake from '@/components/about/GitHubSnake.astro';
+import { ABOUT_TAG_SPHERE_CONFIG } from '@/components/about/tagSphereConfig';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getMessages } from '@/i18n/messages';
 import { getLocalizedPath } from '@/i18n/routing';
+import TagSphere from 'tag-sphere/astro';
 
 const t = getMessages('es').about;
 
@@ -36,7 +37,7 @@ const title = 'Sobre mí – Alex John Chamba';
 
 <BaseLayout lang="es" pathname={Astro.url.pathname} title={title}>
 
-  <!-- Intro + TagCloud -->
+  <!-- Intro + TagSphere -->
   <section class="section intro-grid">
     <div class="intro-text">
       <span class="section-label">sobre mí</span>
@@ -53,7 +54,15 @@ const title = 'Sobre mí – Alex John Chamba';
       </a>
     </div>
 
-    <TagCloud id="tag-cloud-es" tags={tags} />
+    <TagSphere
+      id="tag-sphere-es"
+      class="about-tag-sphere"
+      aria-label="Esfera de etiquetas"
+      tags={tags}
+      radius={ABOUT_TAG_SPHERE_CONFIG.radius}
+      speed={ABOUT_TAG_SPHERE_CONFIG.speed}
+      direction={ABOUT_TAG_SPHERE_CONFIG.direction}
+    />
   </section>
 
   <!-- Experiencia -->
