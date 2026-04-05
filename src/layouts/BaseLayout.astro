@@ -17,6 +17,8 @@ const defaultDescriptionByLocale: Record<Locale, string> = {
 };
 
 const { lang, title = 'Alex John Chamba', description = defaultDescriptionByLocale[lang], pathname } = Astro.props;
+const normalizedPathname = pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+const shouldPreloadAvatar = normalizedPathname === '/' || normalizedPathname === '/es';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://alexjcm.vercel.app');
 const socialImageURL = new URL('/assets/logo_dark_aj600.jpg', Astro.url);
@@ -31,7 +33,9 @@ const twitterHandle = '@alexjhcm';
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0a0e1a" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="preload" href="/assets/avatar.svg" as="image" type="image/svg+xml" />
+    {shouldPreloadAvatar && (
+      <link rel="preload" href="/assets/avatar.svg" as="image" type="image/svg+xml" />
+    )}
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/assets/logo_dark_aj167.jpg" />
     <link rel="manifest" href="/manifest.json" />

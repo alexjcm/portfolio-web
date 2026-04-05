@@ -31,22 +31,21 @@ const routes: { key: NavRoute; label: string }[] = [
   <div class="inner">
     <!-- Brand / Logo -->
     <a class="brand" href={getLocalizedPath(locale, 'home')} aria-label={locale === 'en' ? 'Go to home' : 'Ir a inicio'}>
-      <picture>
-        <source
-          media="(prefers-color-scheme: dark)"
-          srcset="/assets/logo_dark_aj167.jpg 167w, /assets/logo_dark_aj600.jpg 600w"
-        />
-        <img
-          src="/assets/logo_light_aj167.jpg"
-          srcset="/assets/logo_light_aj167.jpg 167w, /assets/logo_light_aj600.jpg 600w"
-          sizes="2rem"
-          width="32"
-          height="32"
-          alt="AJ logo"
-          loading="eager"
-          decoding="async"
-        />
-      </picture>
+      <img
+        id="brand-logo"
+        src="/assets/logo_dark_aj167.jpg"
+        srcset="/assets/logo_dark_aj167.jpg 167w, /assets/logo_dark_aj600.jpg 600w"
+        data-light-src="/assets/logo_light_aj167.jpg"
+        data-light-srcset="/assets/logo_light_aj167.jpg 167w, /assets/logo_light_aj600.jpg 600w"
+        data-dark-src="/assets/logo_dark_aj167.jpg"
+        data-dark-srcset="/assets/logo_dark_aj167.jpg 167w, /assets/logo_dark_aj600.jpg 600w"
+        sizes="2rem"
+        width="32"
+        height="32"
+        alt="AJ logo"
+        loading="eager"
+        decoding="async"
+      />
     </a>
 
     <!-- Primary nav -->
@@ -93,14 +92,14 @@ const routes: { key: NavRoute; label: string }[] = [
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
+
+      <!-- Hamburger menu (mobile) -->
+      <button class="menuToggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" type="button">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
-
-<!-- Hamburger menu (mobile) -->
-<button class="menuToggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav" type="button">
-  <span></span><span></span><span></span>
-</button>
 
 <!-- Mobile nav drawer -->
 <nav class="mobileNav" id="mobile-nav" aria-label="Mobile navigation" inert>
@@ -128,12 +127,26 @@ const routes: { key: NavRoute; label: string }[] = [
 <script is:inline>
   /* ── Theme toggle ── */
   (function () {
+    var logo = document.getElementById('brand-logo');
+
+    var syncBrandLogo = function (theme) {
+      if (!logo) return;
+      var isLight = theme === 'light';
+      var src = isLight ? logo.dataset.lightSrc : logo.dataset.darkSrc;
+      var srcset = isLight ? logo.dataset.lightSrcset : logo.dataset.darkSrcset;
+      if (src) logo.setAttribute('src', src);
+      if (srcset) logo.setAttribute('srcset', srcset);
+    };
+
+    syncBrandLogo(document.documentElement.getAttribute('data-theme') || 'dark');
+
     var btn = document.getElementById('theme-toggle');
     if (!btn) return;
     btn.addEventListener('click', function () {
       var current = document.documentElement.getAttribute('data-theme');
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
+      syncBrandLogo(next);
       try { localStorage.setItem('theme', next); } catch (_) {}
     });
   })();
@@ -194,12 +207,6 @@ const routes: { key: NavRoute; label: string }[] = [
 
   .brand:hover {
     box-shadow: var(--glow);
-  }
-
-  .brand picture {
-    display: flex;
-    width: 100%;
-    height: 100%;
   }
 
   .brand img {
@@ -324,10 +331,6 @@ const routes: { key: NavRoute; label: string }[] = [
   /* ── Hamburger (mobile only) ── */
   .menuToggle {
     display: none;
-    position: fixed;
-    top: calc((var(--nav-height) - 3rem) / 2);
-    right: 1.25rem;
-    z-index: 110;
     width: 3rem;
     height: 3rem;
     flex-direction: column;

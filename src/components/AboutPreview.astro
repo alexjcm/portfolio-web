@@ -10,12 +10,13 @@ interface Props {
 const { locale } = Astro.props;
 const ta = getMessages(locale).about;
 
+const sectionLabel = locale === 'en' ? 'about' : 'sobre mí';
 const heading      = locale === 'en' ? 'About Me'       : 'Sobre Mí';
 const readMoreText = locale === 'en' ? 'Read more →'    : 'Leer más →';
 ---
 
 <section class="section about-preview">
-  <span class="section-label">about</span>
+  <span class="section-label">{sectionLabel}</span>
   <h2 class="section-title">{heading}</h2>
   <div class="card glass">
     <p class="bio">{ta.iamSummary}</p>

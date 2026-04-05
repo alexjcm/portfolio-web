@@ -22,6 +22,16 @@ const { phrases, id } = Astro.props;
       var phrases = JSON.parse(instance.dataset.phrases || '[]');
       var valueNode = instance.querySelector('.value');
       if (!valueNode || !phrases.length) return;
+      var prefersReducedMotion = false;
+      try {
+        prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } catch (_) {}
+
+      if (prefersReducedMotion) {
+        valueNode.textContent = phrases[0] || '';
+        instance.classList.add('reduced-motion');
+        return;
+      }
 
       var phraseIndex = 0;
       var charIndex = 0;
@@ -80,6 +90,10 @@ const { phrases, id } = Astro.props;
     color: var(--accent);
     animation: blink 0.85s steps(1) infinite;
     line-height: 1;
+  }
+
+  .typewriter.reduced-motion .cursor {
+    display: none;
   }
 
   @keyframes blink {
