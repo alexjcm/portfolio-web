@@ -24,19 +24,18 @@ const iconsMap = {
 const sectionTitle = locale === 'en' ? 'Tech Stack' : 'Stack Tecnológico';
 const sectionLabel = locale === 'en' ? 'tools' : 'herramientas';
 
-
 const stack = [
-  { label: 'Java',        id: 'java'        },
-  { label: 'Spring',      id: 'spring'      },
-  { label: 'TypeScript',  id: 'typescript'  },
-  { label: 'Node.js',     id: 'nodejs'      },
-  { label: 'React',       id: 'react'       },
-  { label: 'Next.js',     id: 'nextjs'      },
-  { label: 'Astro',       id: 'astro'       },
-  { label: 'PostgreSQL',  id: 'postgresql'  },
-  { label: 'Docker',      id: 'docker'      },
-  { label: 'Git',         id: 'git'         },
-  { label: 'Linux',       id: 'linux'       },
+  { label: 'Java', id: 'java' },
+  { label: 'Spring', id: 'spring' },
+  { label: 'TypeScript', id: 'typescript' },
+  { label: 'Node.js', id: 'nodejs' },
+  { label: 'React', id: 'react' },
+  { label: 'Next.js', id: 'nextjs' },
+  { label: 'Astro', id: 'astro' },
+  { label: 'PostgreSQL', id: 'postgresql' },
+  { label: 'Docker', id: 'docker' },
+  { label: 'Git', id: 'git' },
+  { label: 'Linux', id: 'linux' },
 ];
 ---
 
@@ -44,14 +43,16 @@ const stack = [
   <span class="section-label">{sectionLabel}</span>
   <h2 class="section-title">{sectionTitle}</h2>
   <ul class="grid" role="list">
-    {stack.map((item) => (
-      <li class="chip glass-sm">
-        <span aria-hidden="true" class="icon-wrapper">
-          <Fragment set:html={iconsMap[item.id as keyof typeof iconsMap]} />
-        </span>
-        <span>{item.label}</span>
-      </li>
-    ))}
+    {
+      stack.map((item) => (
+        <li class="chip glass-sm">
+          <span aria-hidden="true" class="icon-wrapper">
+            <Fragment set:html={iconsMap[item.id as keyof typeof iconsMap]} />
+          </span>
+          <span>{item.label}</span>
+        </li>
+      ))
+    }
   </ul>
 </section>
 
@@ -76,7 +77,10 @@ const stack = [
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text);
-    transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+    transition:
+      background var(--transition),
+      box-shadow var(--transition),
+      transform var(--transition);
     cursor: default;
   }
 

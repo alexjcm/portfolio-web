@@ -11,9 +11,9 @@ const t = getMessages(locale).common;
 const year = new Date().getFullYear();
 
 const links = [
-  { label: 'GitHub',   href: 'https://github.com/alexjcm' },
+  { label: 'GitHub', href: 'https://github.com/alexjcm' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/alex-john-chamba-macas/' },
-  { label: 'Dev.to',   href: 'https://dev.to/alexjcm' },
+  { label: 'Dev.to', href: 'https://dev.to/alexjcm' },
 ];
 ---
 
@@ -25,13 +25,15 @@ const links = [
     </p>
     <p class="credit text-muted">{t.footer.createdBy}</p>
     <ul class="links" role="list">
-      {links.map((link) => (
-        <li>
-          <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit my ${link.label} profile`}>
-            {link.label}
-          </a>
-        </li>
-      ))}
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit my ${link.label} profile`}>
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </footer>

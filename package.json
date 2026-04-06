@@ -9,7 +9,7 @@
     "check": "astro check",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|md|astro)\" --config ./.prettierrc.js"
+    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|md|astro)\" --config ./.prettierrc.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
@@ -22,10 +22,12 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@eslint/js": "^9.39.1",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3"
   },
   "packageManager": "npm@11.4.2+sha512.f90c1ec8b207b625d6edb6693aef23dacb39c38e4217fe8c46a973f119cab392ac0de23fe3f07e583188dae9fd9108b3845ad6f525b598742bd060ebad60bff3"

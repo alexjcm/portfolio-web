@@ -1,4 +1,4 @@
-# 🌌 Alex John Chamba — Professional Portfolio
+# 🌌 alexjcm — Professional Portfolio
 
 [![Astro](https://img.shields.io/badge/Astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -26,6 +26,7 @@ To ensure an enterprise-grade experience, the following optimizations have been 
 ## 🛠️ Tech Stack
 
 ### Core
+
 - **Framework**: [Astro](https://astro.build/) (Static Site Generation)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: Vanilla CSS with modern Custom Properties (Tokens)

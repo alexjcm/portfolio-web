@@ -1,4 +1,6 @@
-.accent { color: var(--accent); }
+.accent {
+  color: var(--accent);
+}
 
 .intro-grid {
   display: grid;
@@ -116,4 +118,3 @@
   flex-wrap: wrap;
   gap: 0.75rem;
 }
-

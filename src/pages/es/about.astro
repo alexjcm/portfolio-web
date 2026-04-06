@@ -10,13 +10,22 @@ import TagSphere from 'tag-sphere/astro';
 const t = getMessages('es').about;
 
 const tags = [
-  'Java', 'Spring Boot', 'Node.js', 'Express',
-  'PostgreSQL', 'MongoDB', 'Redis', 'Docker',
-  'Git', 'TypeScript', 'Astro', 'Testing',
+  'Java',
+  'Spring Boot',
+  'Node.js',
+  'Express',
+  'PostgreSQL',
+  'MongoDB',
+  'Redis',
+  'Docker',
+  'Git',
+  'TypeScript',
+  'Astro',
+  'Testing',
 ];
 
 const skills = ['Java', 'TypeScript', 'Node.js', 'Spring Boot', 'React', 'Astro'];
-const tools  = ['Docker', 'Git', 'VS Code', 'Postman', 'Linux', 'Vercel'];
+const tools = ['Docker', 'Git', 'VS Code', 'Postman', 'Linux', 'Vercel'];
 
 const experience = [
   {
@@ -37,22 +46,20 @@ const title = 'Sobre mí – Alex John Chamba';
 ---
 
 <BaseLayout lang="es" pathname={Astro.url.pathname} title={title}>
-
   <!-- Intro + TagSphere -->
   <section class="section intro-grid">
     <div class="intro-text">
       <span class="section-label">sobre mí</span>
       <h1 class="section-title">{t.whoQ} <span class="accent">{t.iamQ}</span></h1>
       <p class="bio">
-        {t.iam} <strong>Alex John Chamba</strong>. {t.iamSummary}
+        {t.iam}
+        <strong>Alex John Chamba</strong>. {t.iamSummary}
       </p>
       <p class="bio">
-        Me apasiona construir software mantenible y de alto rendimiento, y compartir lo que aprendo.
-        Cuando no estoy programando, disfruto explorando nuevas herramientas y contribuyendo al código abierto.
+        Me apasiona construir software mantenible y de alto rendimiento, y compartir lo que aprendo. Cuando no estoy
+        programando, disfruto explorando nuevas herramientas y contribuyendo al código abierto.
       </p>
-      <a href={getLocalizedPath('es', 'contact')} class="btn btn-primary cta">
-        Contáctame →
-      </a>
+      <a href={getLocalizedPath('es', 'contact')} class="btn btn-primary cta">Contáctame →</a>
     </div>
 
     <TagSphere
@@ -71,18 +78,20 @@ const title = 'Sobre mí – Alex John Chamba';
     <span class="section-label">carrera</span>
     <h2 class="section-title">Experiencia</h2>
     <ul class="exp-list">
-      {experience.map((item) => (
-        <li class="exp-item glass">
-          <div class="exp-header">
-            <div>
-              <h3 class="exp-role">{item.role}</h3>
-              <p class="exp-company">{item.company}</p>
+      {
+        experience.map((item) => (
+          <li class="exp-item glass">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">{item.role}</h3>
+                <p class="exp-company">{item.company}</p>
+              </div>
+              <span class="exp-period mono text-muted">{item.period}</span>
             </div>
-            <span class="exp-period mono text-muted">{item.period}</span>
-          </div>
-          <p class="exp-desc">{item.description}</p>
-        </li>
-      ))}
+            <p class="exp-desc">{item.description}</p>
+          </li>
+        ))
+      }
     </ul>
   </section>
 
@@ -113,12 +122,18 @@ const title = 'Sobre mí – Alex John Chamba';
     <h2 class="section-title">Conectemos</h2>
     <div class="link-row">
       <a href="https://github.com/alexjcm" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
-      <a href="https://www.linkedin.com/in/alex-john-chamba-macas/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+      <a
+        href="https://www.linkedin.com/in/alex-john-chamba-macas/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-outline"
+      >
+        LinkedIn
+      </a>
       <a href="mailto:alexjohnchamba@gmail.com" class="btn btn-primary">Escríbeme</a>
     </div>
   </section>
 
   <!-- GitHub Snake Animation -->
   <GitHubSnake />
-
 </BaseLayout>

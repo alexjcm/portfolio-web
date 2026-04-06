@@ -10,9 +10,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 const title = 'Alex John Chamba · Ingeniero de Software';
 
 const allProjects = await getCollection('projects');
-const featured = allProjects
-  .filter((p) => p.data.featured)
-  .slice(0, 3);
+const featured = allProjects.filter((p) => p.data.featured).slice(0, 3);
 ---
 
 <BaseLayout lang="es" pathname={Astro.url.pathname} title={title}>
@@ -27,18 +25,20 @@ const featured = allProjects
       <a href="/es/projects" class="btn btn-outline view-all">Ver todos →</a>
     </div>
     <div class="grid-3">
-      {featured.map((project) => (
-        <ProjectCard
-          name={project.data.name.es}
-          description={project.data.description.es}
-          tech={project.data.tech}
-          image={project.data.imageProjectLink}
-          projectLink={project.data.projectLink}
-          demoLink={project.data.demoLink || undefined}
-          featured={project.data.featured}
-          loading="eager"
-        />
-      ))}
+      {
+        featured.map((project) => (
+          <ProjectCard
+            name={project.data.name.es}
+            description={project.data.description.es}
+            tech={project.data.tech}
+            image={project.data.imageProjectLink}
+            projectLink={project.data.projectLink}
+            demoLink={project.data.demoLink || undefined}
+            featured={project.data.featured}
+            loading="eager"
+          />
+        ))
+      }
     </div>
   </section>
 

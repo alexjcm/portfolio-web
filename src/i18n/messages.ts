@@ -1,3 +1,4 @@
+import type { Locale } from './config';
 import enAbout from './messages/en/about.json';
 import enCommon from './messages/en/common.json';
 import enContact from './messages/en/contact.json';
@@ -8,7 +9,6 @@ import esCommon from './messages/es/common.json';
 import esContact from './messages/es/contact.json';
 import esHome from './messages/es/home.json';
 import esProjects from './messages/es/projects.json';
-import type { Locale } from './config';
 
 export const messages = {
   en: {

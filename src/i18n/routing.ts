@@ -27,9 +27,7 @@ export function switchLocalePath(pathname: string, targetLocale: Locale): string
     return pathSegments.length > 0 ? `/${pathSegments.join('/')}` : '/';
   }
 
-  return pathSegments.length > 0
-    ? `/${targetLocale}/${pathSegments.join('/')}`
-    : `/${targetLocale}`;
+  return pathSegments.length > 0 ? `/${targetLocale}/${pathSegments.join('/')}` : `/${targetLocale}`;
 }
 
 export function isRouteActive(pathname: string, locale: Locale, route: NavRoute): boolean {

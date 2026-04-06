@@ -8,10 +8,7 @@ const t = getMessages('es').projects;
 const projects = await getCollection('projects');
 
 // Destacados primero, luego el resto
-const sorted = [
-  ...projects.filter((p) => p.data.featured),
-  ...projects.filter((p) => !p.data.featured),
-];
+const sorted = [...projects.filter((p) => p.data.featured), ...projects.filter((p) => !p.data.featured)];
 
 const title = 'Proyectos – Alex John Chamba';
 ---
@@ -20,24 +17,26 @@ const title = 'Proyectos – Alex John Chamba';
   <section class="section projects-page">
     <span class="section-label">trabajo</span>
     <h1 class="section-title">
-      {t.myRecent} <span class="accent">{t.works}</span>
+      {t.myRecent}<span class="accent">{t.works}</span>
     </h1>
     <p class="subtitle">
       Una selección de proyectos que he construido — desde aplicaciones web hasta herramientas de datos.
     </p>
 
     <div class="projects-grid">
-      {sorted.map((project) => (
-        <ProjectCard
-          name={project.data.name.es}
-          description={project.data.description.es}
-          tech={project.data.tech}
-          image={project.data.imageProjectLink}
-          projectLink={project.data.projectLink}
-          demoLink={project.data.demoLink || undefined}
-          featured={project.data.featured}
-        />
-      ))}
+      {
+        sorted.map((project) => (
+          <ProjectCard
+            name={project.data.name.es}
+            description={project.data.description.es}
+            tech={project.data.tech}
+            image={project.data.imageProjectLink}
+            projectLink={project.data.projectLink}
+            demoLink={project.data.demoLink || undefined}
+            featured={project.data.featured}
+          />
+        ))
+      }
     </div>
   </section>
 </BaseLayout>

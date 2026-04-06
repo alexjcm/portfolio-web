@@ -33,9 +33,7 @@ const twitterHandle = '@alexjhcm';
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0a0e1a" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    {shouldPreloadAvatar && (
-      <link rel="preload" href="/assets/avatar.svg" as="image" type="image/svg+xml" />
-    )}
+    {shouldPreloadAvatar && <link rel="preload" href="/assets/avatar.svg" as="image" type="image/svg+xml" />}
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/assets/logo_dark_aj167.jpg" />
     <link rel="manifest" href="/manifest.json" />
@@ -43,11 +41,21 @@ const twitterHandle = '@alexjhcm';
     <title>{title}</title>
     <!-- Font Preloading -->
     <!-- Alternate Locales -->
-    {lang === 'en' ? (
-      <link rel="alternate" hreflang="es" href={new URL('/es' + pathname.replace(/^\/es/, ''), Astro.site || 'https://alexjcm.vercel.app')} />
-    ) : (
-      <link rel="alternate" hreflang="en" href={new URL(pathname.replace(/^\/es/, '') || '/', Astro.site || 'https://alexjcm.vercel.app')} />
-    )}
+    {
+      lang === 'en' ? (
+        <link
+          rel="alternate"
+          hreflang="es"
+          href={new URL('/es' + pathname.replace(/^\/es/, ''), Astro.site || 'https://alexjcm.vercel.app')}
+        />
+      ) : (
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={new URL(pathname.replace(/^\/es/, '') || '/', Astro.site || 'https://alexjcm.vercel.app')}
+        />
+      )
+    }
     <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site || 'https://alexjcm.vercel.app')} />
 
     <!-- Open Graph / Facebook -->
@@ -60,20 +68,20 @@ const twitterHandle = '@alexjhcm';
     <meta property="og:locale:alternate" content={lang === 'en' ? 'es_ES' : 'en_US'} />
 
     <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json" is:inline set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Alex John Chamba",
-      "url": "https://alexjcm.vercel.app",
-      "image": socialImageURL,
-      "jobTitle": "Software Engineer",
-      "sameAs": [
-        "https://github.com/alexjhcm",
-        "https://linkedin.com/in/alexjhcm",
-        "https://twitter.com/alexjhcm"
-      ],
-      "description": description
-    })} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Alex John Chamba',
+        url: 'https://alexjcm.vercel.app',
+        image: socialImageURL,
+        jobTitle: 'Software Engineer',
+        sameAs: ['https://github.com/alexjhcm', 'https://linkedin.com/in/alexjhcm', 'https://twitter.com/alexjhcm'],
+        description: description,
+      })}
+    />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -83,17 +91,17 @@ const twitterHandle = '@alexjhcm';
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
-
     <!-- Anti-FOUC: resolve theme before first paint -->
     <script is:inline>
       (function () {
         try {
           var stored = localStorage.getItem('theme');
-          var theme = stored === 'light' || stored === 'dark'
-            ? stored
-            : window.matchMedia('(prefers-color-scheme: light)').matches
-              ? 'light'
-              : 'dark';
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark';
           document.documentElement.setAttribute('data-theme', theme);
         } catch (_) {}
       })();
